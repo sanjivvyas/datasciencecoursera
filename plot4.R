@@ -1,3 +1,10 @@
+##Class: Exploratory Data Analysis
+##Author: Sanjiv Vyas
+##Date: 09/07/2014
+## File: plot4.R
+## Desc: Examine how household energy usage varies over a 2-day period in February, 2007
+## Desc: Plot4 shows plot2, plot3, and two additional graph showing voltage vs date_time and global reactive power vs date time
+
 plot4 <- function() { 
   filename <- "household_power_consumption.txt" 
   df <- read.table(filename, header=TRUE, sep=";", colClasses=c("character", "character", rep("numeric",7)), na="?") 
@@ -8,7 +15,7 @@ plot4 <- function() {
   df <- subset(df, Date %in% dates) 
 
 
-png("plot4.png", width=400, height=400) 
+png("plot4.png", width=480, height=480) 
  
      par(mfrow=c(2,2)) 
  

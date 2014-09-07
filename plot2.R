@@ -1,3 +1,10 @@
+##Class: Exploratory Data Analysis
+##Author: Sanjiv Vyas
+##Date: 09/07/2014
+## File: plot2.R
+## Desc: Examine how household energy usage varies over a 2-day period in February, 2007
+## Desc: Plot2 is a line diagram showing usage over the days
+
 plot2 <- function() { 
      filename <- "household_power_consumption.txt" 
      df <- read.table(filename, header=TRUE, sep=";", colClasses=c("character", "character", rep("numeric",7)), na="?") 
@@ -7,11 +14,7 @@ plot2 <- function() {
      dates <- as.Date(c("2007-02-01", "2007-02-02"), "%Y-%m-%d") 
      df <- subset(df, Date %in% dates) 
      
-     png("plot2.png", width=400, height=400)
-     plot(df$Time, df$Global_active_power, 
-         type="l", 
-   xlab="", 
-   ylab="Global Active Power (kilowatts)") 
-    
-   dev.off() 
+     png("plot2.png", width=480, height=480)
+     plot(df$Time, df$Global_active_power, type="l", xlab="", ylab="Global Active Power (kilowatts)") 
+     dev.off() 
  } 

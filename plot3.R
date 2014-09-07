@@ -1,3 +1,11 @@
+##Class: Exploratory Data Analysis
+##Author: Sanjiv Vyas
+##Date: 09/07/2014
+## File: plot3.R
+## Desc: Examine how household energy usage varies over a 2-day period in February, 2007
+## Desc: Plot3 is a line diagram showing sub metering
+
+
 plot3 <- function() { 
   filename <- "household_power_consumption.txt" 
   df <- read.table(filename, header=TRUE, sep=";", colClasses=c("character", "character", rep("numeric",7)), na="?") 
@@ -6,7 +14,7 @@ plot3 <- function() {
   # only use data from the dates 2007-02-01 and 2007-02-02 
   dates <- as.Date(c("2007-02-01", "2007-02-02"), "%Y-%m-%d") 
   df <- subset(df, Date %in% dates)  
-  png("plot3.png", width=400, height=400) 
+  png("plot3.png", width=480, height=480) 
 
    plot(df$Time, df$Sub_metering_1, type="l", col="black", 
         xlab="", ylab="Energy sub metering") 
